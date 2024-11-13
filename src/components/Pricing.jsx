@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const pricingPlans = [
   {
     title: 'Basic Plan',
@@ -42,6 +42,7 @@ const pricingPlans = [
 ];
 
 export default function Pricing() {
+  const navigate = useNavigate();
   return (
     <section className="pricing py-12 px-6 md:py-24 md:px-12 bg-green-950 text-white">
       <div className="container mx-auto text-center">
@@ -99,6 +100,7 @@ export default function Pricing() {
                 <div className="flex justify-center mt-auto">
                   <button
                     className={`w-full py-3 px-6 rounded-lg text-white ${plan.buttonColor} transform hover:scale-105 transition-transform duration-300`}
+                    onClick={() => navigate('/payment')}
                   >
                     {plan.buttonText}
                   </button>

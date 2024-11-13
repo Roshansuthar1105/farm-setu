@@ -11,7 +11,6 @@ const Profile = () => {
     const [cart , setCart ] =useState([]);
     const [products ,setProducts]=useState([]);
     useEffect(()=>{
-        console.log(authUser,"hello user");
         fetchCartItems();
         fetchProducts();
     },[]);
@@ -23,7 +22,6 @@ const Profile = () => {
             }
             const data = await response.json();
             setCart(data);
-            console.log(data);
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
         }
@@ -38,8 +36,6 @@ const Profile = () => {
             const allCartItems = cart.map(item => item);
             const filteredProducts = data.filter(product => allCartItems.includes(product._id));
             setProducts(filteredProducts);
-            console.log("cart",cart)
-            console.log(filteredProducts);
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
         }

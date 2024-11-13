@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const pricingPlans = [
   {
     title: 'Basic Plan',
@@ -46,7 +46,6 @@ export default function Payment() {
   const navigate = useNavigate();
 
   const handlePlanSelect = (plan) => {
-      console.log(plan);
     setSelectedPlan(plan);
   };
 
@@ -121,8 +120,11 @@ export default function Payment() {
       {selectedPlan && (
         <div className="selected-plan-section py-12 px-6 md:py-24 md:px-12 bg-green-950 text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-green-200">Selected Plan: {selectedPlan.title}</h2>
-          <div className="flex flex-col items-center">
-            <p className="text-xl font-semibold mb-4 text-green-100">Price: {selectedPlan.price}</p>
+          <div className="flex flex-col items-center space-y-4">
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold mb-2 text-green-200">Selected Plan: {selectedPlan.title}</h3>
+              <p className="text-xl font-semibold mb-4 text-green-100">Price: {selectedPlan.price}</p>
+            </div>
             <button
               className="w-full py-3 px-6 rounded-lg text-white bg-green-600 hover:bg-green-900 transform hover:scale-105 transition-transform duration-300"
               onClick={() => navigate('/payment-processing')}

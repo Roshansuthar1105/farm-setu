@@ -27,7 +27,6 @@ const useSignup = () => {
       if (response.status === 201) {
         toast.success('Signup successful!');
         // You can redirect the user or handle success as needed
-        // console.log(response.data);
         const data= response.data;
         localStorage.setItem('user', JSON.stringify(data));
         setAuthUser(data);

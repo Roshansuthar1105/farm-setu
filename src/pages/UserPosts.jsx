@@ -15,7 +15,7 @@ function UserPosts() {
         const fetchPosts = async () => {
             console.log("email", authUser.email);
             try {
-                const response = await fetch(`/api/community/posts`);
+                const response = await fetch(`https://hotel-oryv.onrender.com/api/community/posts`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
